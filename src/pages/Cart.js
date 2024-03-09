@@ -62,11 +62,12 @@ export default function Cart({cartItems, setCartItems}){
             <Fragment>
             <div className="cart-item">
                 <div className="row">
-                    <div className="col-4 col-lg-3">
+                <div className="col-6 col-lg-3 mr-0 ">
+
                         <img src={item.product.images[0].image} alt={item.product.name} height="90" width="115"/>
                     </div>
 
-                    <div className="col-5 col-lg-3">
+                    <div className="col-5 col-lg-3 ">
                      <Link to={"/product/"+item.product._id} >{item.product.name}</Link>
                     </div>
 
@@ -75,14 +76,16 @@ export default function Cart({cartItems, setCartItems}){
                         <p id="card_item_price">${item.product.price}</p>
                     </div>
 
-                    <div className="col-4 col-lg-3 mt-4 mt-lg-0">
-                        <div className="stockCounter d-inline">
-                            <span className="btn btn-danger minus" onClick={()=>decreaseQty(item)}>-</span>
-                            <input type="number" className="form-control count d-inline" value={item.qty} readOnly />
+                    <div className="col-4 col-lg-3 mt-4 mt-lg-0  ">
+                        <div className="stockCounter d-inline-flex">
+                            <span className="btn btn-danger minus mr-1 " onClick={()=>decreaseQty(item)}>-</span>
+                            <input type="number" className="form-control count d-inline mr-1 " value={item.qty} readOnly />
 
-                            <span className="btn btn-primary plus" onClick={()=>increaseQty(item)}>+</span>
+                            <span className="btn btn-primary plus " onClick={()=>increaseQty(item)}>+</span>
                         </div>
                     </div>
+
+                    
 
                     <div className="col-4 col-lg-1 mt-4 mt-lg-0">
                         <i id="delete_cart_item" onClick={()=>removeItem(item)} className="fa fa-trash btn btn-danger"></i>

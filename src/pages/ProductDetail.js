@@ -38,8 +38,8 @@ export default function ProductDetail({cartItems, setCartItems}) {
 
     return  product && <div className="container container-fluid">
                 <div className="row f-flex justify-content-around">
-                    <div className="col-12 col-lg-5 img-fluid" id="product_image">
-                        <img src={product.images[0].image} alt="sdf" height="500" width="500" />
+                    <div className="col-14 col-lg-5 img-fluid " id="product_image">
+                        <img src={product.images[0].image} alt="sdf" height="370" width="350" />
                     </div>
 
                     <div className="col-11 col-lg-5 mt-5">
