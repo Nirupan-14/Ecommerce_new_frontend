@@ -22,11 +22,11 @@ export default function ProductDetail({cartItems, setCartItems}) {
         }
     }
 
+   
     function increaseQty() {
-        if (product.stock == qty) {
-            return;
+        if (qty < product.stock) {
+            setQty((state) => state + 1);
         }
-        setQty((state) => state + 1);
     }
 
     function decreaseQty() {

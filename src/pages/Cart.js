@@ -51,6 +51,11 @@ export default function Cart({cartItems, setCartItems}){
         })
     }
 
+    function getTotal() {
+        const total = cartItems.reduce((acc, item) => (acc + item.product.price * item.qty), 0);
+        return total.toFixed(2); // Limit to two decimal points
+    }
+
 
     return cartItems.length>0?<Fragment>
            <div class="container container-fluid">
@@ -106,7 +111,7 @@ export default function Cart({cartItems, setCartItems}){
                 <h4>Order Summary</h4>
                 <hr />
                 <p>Subtotal:  <span className="order-summary-values">{cartItems.reduce((acc,item)=>(acc + item.qty),0)}(units)</span></p>
-                <p>Est. total: <span className="order-summary-values">${cartItems.reduce((acc,item)=>(acc + item.product.price*item.qty),0)}</span></p>
+                <p>Est. total: <span className="order-summary-values">${(cartItems.reduce((acc,item)=>(acc + item.product.price*item.qty),0)).toFixed(2)}</span></p>
 
                 <hr />
                 <button id="checkout_btn" className="btn btn-primary btn-block"onClick={placeOrderHandler}>Place Order</button>
